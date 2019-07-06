@@ -18,6 +18,7 @@
 --
 -- Dumping data for table `litemall_ad`
 --
+USE `litemall`;
 
 LOCK TABLES `litemall_ad` WRITE;
 /*!40000 ALTER TABLE `litemall_ad` DISABLE KEYS */;
@@ -330,5 +331,9 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+INSERT INTO `litemall_salesman`(id,user_id,name,gender,phone,address,sale_level,work_status,audit_status,audit_fail_reason,add_time,update_time,deleted) values(1,1,'马昌',1,'18612874258','云南电视台',1,1,1,'','2019-04-20 22:17:43','2019-04-20 22:17:43',0);
+
+
 
 -- Dump completed on 2018-12-10 18:49:23

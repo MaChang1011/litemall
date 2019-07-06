@@ -18,7 +18,7 @@
 --
 -- Table structure for table `litemall_ad`
 --
-
+USE `litemall`;
 DROP TABLE IF EXISTS `litemall_ad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -778,3 +778,31 @@ CREATE TABLE `litemall_user_formid` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2018-12-10 16:59:09
+
+DROP TABLE IF EXISTS `litemall_salesman`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+create table litemall_salesman
+(
+    id                   int auto_increment
+        primary key,
+    user_id              int        default 0    not null comment '用户表的用户ID',
+    name                 varchar(63)             not null comment '团长姓名',
+    gender               tinyint(3) default 0    not null comment '性别：0 未知， 1男， 1 女',
+    phone                varchar(11)             not null comment '团长电话',
+    address              varchar(200)            not null comment '团长地址',
+    dispatching_distance int        default 1000 not null comment '配送半径范围 m',
+    sale_level           tinyint(3) default 0    null comment '0 初级，1 中级，2 高级',
+    work_status          tinyint(3) default 0    not null comment '0 休息, 1 工作',
+    audit_status         tinyint(3) default 0    not null comment '0 未审核， 1 审核通过 ，2 审核不通过',
+    audit_fail_reason    varchar(200)            null comment '审核不通过原因',
+    add_time             datetime                null comment '创建时间',
+    update_time          datetime                null comment '更新时间',
+    deleted              tinyint(1) default 0    null comment '逻辑删除',
+    constraint phone
+        unique (phone)
+)
+    comment '团长表' charset = utf8mb4;
+
+create index litemall_salesman_name_index
+    on litemall_salesman (name);

@@ -151,7 +151,29 @@ export const asyncRouterMap = [
       }
     ]
   },
-
+  {
+    path: '/salesman',
+    component: Layout,
+    redirect: 'noredirect',
+    alwaysShow: true,
+    name: 'salesmanManage',
+    meta: {
+      title: '团长管理',
+      icon: 'chart'
+    },
+    children: [
+      {
+        path: 'salesman',
+        component: () => import('@/views/salesman/salesman'),
+        name: 'salesman',
+        meta: {
+          perms: ['GET /admin/salesman/list'],
+          title: '团长列表',
+          noCache: true
+        }
+      }
+    ]
+  },
   {
     path: '/mall',
     component: Layout,

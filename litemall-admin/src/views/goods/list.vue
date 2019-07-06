@@ -177,6 +177,7 @@ export default {
       this.detailDialogVisible = true
     },
     handleDelete(row) {
+      debugger
       deleteGoods(row).then(response => {
         this.$notify.success({
           title: '成功',
